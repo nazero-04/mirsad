@@ -1,0 +1,19 @@
+{
+  "model": "YOLOv8n",
+  "dataset": "FML v1",
+  "split": "test",
+  "number_of_images": 548,
+  "ultralytics_version": "8.4.208",
+  "metric_scale": "0_to_1",
+  "metrics": {
+    "precision": 0.8641520783482929,
+    "recall": 0.8135294117647058,
+    "map50": 0.8874553961778424,
+    "map50_95": 0.5284513107139148
+  },
+  "evaluation_settings": {
+    "imgsz": 640,
+    "conf": 0.001,
+    "iou": 0.7
+  }
+}

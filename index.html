@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#102d3b">
+  <meta name="description" content="مرصاد: نموذج تفاعلي لرصد المخلفات المرئية في الصور، مراجعة النتائج وتوثيق موقع البلاغ.">
+  <title>مرصاد | مساحة الرصد البحري</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <a href="#main" class="skip-link">انتقل إلى المحتوى</a>
+  <svg class="svg-library" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <symbol id="i-scan" viewBox="0 0 24 24"><path d="M8 3H5a2 2 0 0 0-2 2v3m13-5h3a2 2 0 0 1 2 2v3M3 16v3a2 2 0 0 0 2 2h3m8 0h3a2 2 0 0 0 2-2v-3M7 12h10M12 7v10"/></symbol>
+    <symbol id="i-chart" viewBox="0 0 24 24"><path d="M4 3v17h17M9 15v-5m5 5V6m5 9v-3"/></symbol>
+    <symbol id="i-reports" viewBox="0 0 24 24"><path d="M9 4H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-4M8 9h5M8 14h5M8 18h3M16 3h5v5m0-5-8 8"/></symbol>
+    <symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7h.01"/></symbol>
+    <symbol id="i-upload" viewBox="0 0 24 24"><path d="M12 16V3m-5 5 5-5 5 5M4 15v4a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-4"/></symbol>
+    <symbol id="i-camera" viewBox="0 0 24 24"><path d="m9 4-2 3H4a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2-3Z"/><circle cx="12" cy="13" r="4"/></symbol>
+    <symbol id="i-image" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="8" cy="8" r="1.5"/><path d="m21 15-6-6L3 21"/></symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24"><path d="M19 10c0 5-7 11-7 11S5 15 5 10a7 7 0 0 1 14 0Z"/><circle cx="12" cy="10" r="2.5"/></symbol>
+    <symbol id="i-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="7"/><circle cx="12" cy="12" r="2"/><path d="M12 2v3m0 14v3M2 12h3m14 0h3"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M20 12H4m6-6-6 6 6 6"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12 4 4L19 6"/></symbol>
+    <symbol id="i-download" viewBox="0 0 24 24"><path d="M12 3v13m-5-5 5 5 5-5M4 17v3a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-3"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24"><path d="m6 6 12 12M6 18 18 6"/></symbol>
+    <symbol id="i-wave" viewBox="0 0 24 24"><path d="M2 9c3-4 7 4 10 0s7 4 10 0M2 15c3-4 7 4 10 0s7 4 10 0"/></symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24"><path d="m12 2 8 3v6c0 5-8 11-8 11S4 16 4 11V5Z"/><path d="m8 11 3 3 5-5"/></symbol>
+    <symbol id="i-grid" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></symbol>
+    <symbol id="i-qr" viewBox="0 0 24 24"><rect x="3" y="3" width="6" height="6" rx="1"/><rect x="15" y="3" width="6" height="6" rx="1"/><rect x="3" y="15" width="6" height="6" rx="1"/><path d="M15 15h3v3h3m-6 3h3m3-9v3M12 3v3m0 6h3M3 12h3"/></symbol>
+  </svg>
+
+  <aside class="sidebar" aria-label="القائمة الرئيسية">
+    <a class="brand" href="#scan" data-panel="scan" aria-label="مرصاد، الصفحة الرئيسية">
+      <svg class="brand-symbol" width="54" height="54" viewBox="0 0 64 64" fill="none" aria-hidden="true"><path d="M13 28a19 19 0 0 1 38 0" stroke="currentColor" stroke-width="4" stroke-linecap="round"/><path d="M32 6v10M20 30h24" stroke="currentColor" stroke-width="4" stroke-linecap="round"/><circle cx="32" cy="28" r="6" fill="currentColor"/><path d="M7 44c9-9 16-9 25-1s16 8 25-1M11 52c7-5 14-4 21 0s15 5 21 0" stroke="currentColor" stroke-width="4" stroke-linecap="round"/></svg>
+      <span class="brand-type"><strong>مرصاد</strong><span lang="en">MIRSAD</span></span>
+    </a>
+    <p class="brand-caption">رؤية أوضح للبيئة البحرية</p>
+
+    <div class="nav-caption">مساحة العمل</div>
+    <nav class="primary-nav">
+      <button class="nav-item is-active" type="button" data-panel="scan" aria-current="page"><svg class="icon"><use href="#i-scan"/></svg><span>تحليل صورة</span><span class="nav-arrow">‹</span></button>
+      <button class="nav-item" type="button" data-panel="dashboard"><svg class="icon"><use href="#i-chart"/></svg><span>لوحة البيانات</span></button>
+      <button class="nav-item" type="button" data-panel="reports"><svg class="icon"><use href="#i-reports"/></svg><span>البلاغات</span></button>
+      <button class="nav-item" type="button" data-panel="about"><svg class="icon"><use href="#i-info"/></svg><span>عن المشروع</span></button>
+    </nav>
+
+    <div class="sidebar-bottom">
+      <div class="sidebar-model"><span class="model-orbit"><svg class="icon"><use href="#i-scan"/></svg></span><div><span class="model-label">محرّك الرصد</span><strong lang="en">YOLOv8n</strong></div><span class="status-dot" aria-hidden="true"></span></div>
+      <p id="modelStatus" class="model-status" role="status">يُحمّل المحلل عند بدء الاستخدام</p>
+      <div class="sidebar-foot"><span>نموذج الهاكاثون</span><span dir="ltr">V 1.0</span></div>
+    </div>
+  </aside>
+
+  <main id="main" class="workspace">
+    <header class="topbar">
+      <div class="breadcrumb"><span>منصة مرصاد</span><span class="breadcrumb-divider">/</span><span id="pageTitle">تحليل صورة</span></div>
+      <div class="topbar-end"><button id="qrBtn" class="share-button" type="button" aria-haspopup="dialog"><svg class="icon"><use href="#i-qr"/></svg><span>مشاركة المنصة</span></button><span class="prototype-badge"><span></span> نموذج تجريبي</span><span class="team-mark" aria-label="فريق مرصاد">م</span></div>
+    </header>
+
+    <div class="page-content">
+      <section id="panel-scan" class="app-panel" aria-labelledby="scanHeading">
+        <div class="page-heading"><div><div class="eyebrow">الرصد يبدأ بصورة</div><h1 id="scanHeading">مساحة الرصد البحري</h1><p id="pageSubtitle">ارفع صورة، راجع المخلفات المرصودة، ثم وثّق موقع البلاغ.</p></div><div class="heading-icon" aria-hidden="true"><svg class="icon"><use href="#i-wave"/></svg></div></div>
+
+        <div class="scan-layout">
+          <div class="scan-primary">
+            <section class="card upload-card" aria-labelledby="uploadHeading">
+              <div class="card-heading"><div class="title-with-step"><span class="step-number">01</span><div><h2 id="uploadHeading">أضف الصورة</h2><p>صورة واضحة لسطح الماء أو المخلفات</p></div></div><span class="small-label" lang="en">JPG · PNG · WEBP</span></div>
+              <div class="upload-area" id="dropZone">
+                <span class="upload-art" aria-hidden="true"><svg class="icon"><use href="#i-upload"/></svg></span>
+                <div><h3>صورة واحدة، بداية بلاغ</h3><p>اختر صورة من جهازك أو التقطها بالكاميرا. الحد الأقصى 20 MB.</p></div>
+                <div class="source-actions">
+                  <label class="btn btn-primary file-button"><input class="visually-hidden" id="imageInput" type="file" accept="image/jpeg,image/png,image/webp"><svg class="icon"><use href="#i-image"/></svg>اختيار صورة</label>
+                  <button class="btn btn-white" id="cameraLaunchBtn" type="button" aria-haspopup="dialog"><svg class="icon"><use href="#i-camera"/></svg>التقاط صورة</button>
+                  <input class="visually-hidden" id="cameraInput" type="file" accept="image/*" capture="environment" aria-label="التقاط صورة باستخدام كاميرا الجهاز" tabindex="-1">
+                </div>
+              </div>
+              <div class="sample-heading"><h3>أو جرّب إحدى صور الاختبار</h3><span>عينات من بيانات المشروع</span></div>
+              <div id="sampleGrid" class="sample-grid" aria-label="صور نموذجية للتحليل"></div>
+            </section>
+
+            <section class="card preview-card" aria-labelledby="previewHeading">
+              <div class="card-heading"><div class="title-with-step"><span class="step-number">02</span><div><h2 id="previewHeading">معاينة وتحليل</h2><p>تظهر حدود الكشف على الصورة بعد التحليل</p></div></div><button id="clearImageBtn" class="icon-button" type="button" title="مسح الصورة" aria-label="مسح الصورة المحددة"><svg class="icon"><use href="#i-close"/></svg></button></div>
+              <div class="preview-stage" id="previewStage">
+                <div id="previewPlaceholder" class="preview-placeholder"><div class="focus-frame"><svg class="icon"><use href="#i-scan"/></svg></div><strong>الصورة ستظهر هنا</strong><p>التحليل يرصد المخلفات المرئية داخل الصورة.</p></div>
+                <canvas id="previewCanvas" hidden aria-label="الصورة المحددة ونتيجة تحديد المخلفات"></canvas>
+              </div>
+              <div class="preview-toolbar"><span id="previewMeta">لم تُحدد صورة بعد</span><span class="privacy-note"><svg class="icon"><use href="#i-shield"/></svg>التحليل داخل متصفحك</span></div>
+              <div class="analysis-actions"><button id="analyzeBtn" class="btn btn-primary btn-analyze" type="button" disabled><svg class="icon"><use href="#i-scan"/></svg><span>تحليل الصورة</span><svg class="icon arrow-icon"><use href="#i-arrow"/></svg></button><p id="inferenceStatus" class="inference-status" aria-live="polite">اختر صورة لبدء التحليل.</p></div>
+            </section>
+          </div>
+
+          <div class="scan-secondary">
+            <section class="card result-card" id="resultCard" aria-labelledby="resultHeading">
+              <div class="card-heading compact"><h2 id="resultHeading">نتيجة الرصد</h2><span class="section-kicker" lang="en">AI ANALYSIS</span></div>
+              <div id="resultSummary" class="result-summary" aria-live="polite"><div class="result-waiting"><span class="result-orbit"><svg class="icon"><use href="#i-target"/></svg></span><h3>بانتظار الصورة</h3><p>ستظهر هنا نتيجة النموذج وعدد المخلفات المرصودة.</p></div></div>
+              <div id="resultDetails" class="result-details"></div>
+              <div class="scope-note"><svg class="icon"><use href="#i-info"/></svg><p>غياب المخلفات المرئية لا يثبت سلامة جودة المياه.</p></div>
+            </section>
+
+            <section class="card location-card" aria-labelledby="locationHeading">
+              <div class="card-heading compact"><div class="title-with-step"><span class="step-number">03</span><div><h2 id="locationHeading">موقع البلاغ</h2><p>حدده لإنشاء بلاغ بعد مراجعة النتيجة</p></div></div><svg class="icon muted-icon"><use href="#i-pin"/></svg></div>
+              <div id="map" class="location-map" aria-label="خريطة اختيار موقع البلاغ"><div class="map-placeholder"><svg class="icon"><use href="#i-pin"/></svg><span>حدد نقطة على الخريطة أو أدخل الإحداثيات</span></div></div>
+              <div class="location-fields"><button id="locateBtn" type="button" class="btn btn-subtle btn-full"><svg class="icon"><use href="#i-target"/></svg>استخدام موقعي الحالي</button><div class="coordinate-grid"><div class="field"><label for="latitude">خط العرض <span lang="en">Latitude</span></label><input id="latitude" type="number" inputmode="decimal" min="-90" max="90" step="any" placeholder="21.5433" dir="ltr"></div><div class="field"><label for="longitude">خط الطول <span lang="en">Longitude</span></label><input id="longitude" type="number" inputmode="decimal" min="-180" max="180" step="any" placeholder="39.1728" dir="ltr"></div></div><div class="field"><label for="placeName">اسم الموقع <span>اختياري</span></label><input id="placeName" type="text" maxlength="160" placeholder="مثال: شاطئ الكورنيش، جدة"></div><p class="field-help">موقع البلاغ يحدده المستخدم؛ لا يستخرجه النموذج من الصورة.</p><p id="reportLocationNotice" class="location-notice" role="status" hidden></p></div>
+            </section>
+
+            <section class="card report-action-card" aria-labelledby="reportActionHeading"><h2 id="reportActionHeading">راجع، ثم وثّق</h2><label class="review-label"><input id="reviewCheck" type="checkbox"><span>راجعت الصورة ونتيجة الرصد وموقع البلاغ.</span></label><button id="reportBtn" type="button" class="btn btn-primary btn-full" disabled><svg class="icon"><use href="#i-reports"/></svg>إنشاء بلاغ تجريبي</button><button id="exportReportBtn" type="button" class="btn btn-ghost btn-full" disabled><svg class="icon"><use href="#i-download"/></svg>تنزيل التقرير</button><p class="simulation-note">تسجيل تجريبي في هذا المتصفح. لا يُرسل درونًا ولا بلاغًا إلى جهة خارجية.</p></section>
+          </div>
+        </div>
+      </section>
+
+      <section id="panel-dashboard" class="app-panel" hidden aria-labelledby="dashboardHeading">
+        <div class="page-heading"><div><div class="eyebrow">الصورة الأكبر</div><h1 id="dashboardHeading">لوحة البيانات</h1><p>تابع بلاغاتك، واطّلع على أداء النموذج في الاختبار.</p></div><div class="heading-icon" aria-hidden="true"><svg class="icon"><use href="#i-chart"/></svg></div></div>
+        <div class="segmented-control" role="tablist" aria-label="عرض لوحة البيانات"><button class="is-active" id="tab-live" type="button" data-dashboard-tab="reports" role="tab" aria-selected="true" aria-controls="dashboard-reports">بلاغات هذا المتصفح</button><button id="tab-model" type="button" data-dashboard-tab="model" role="tab" aria-selected="false" aria-controls="dashboard-model">أداء النموذج</button></div>
+
+        <div id="dashboard-reports" role="tabpanel" aria-labelledby="tab-live">
+          <div class="stats-grid"><article class="stat-card"><span class="stat-icon teal"><svg class="icon"><use href="#i-reports"/></svg></span><span class="stat-label">إجمالي البلاغات</span><strong id="liveReportsCount">0</strong><span class="stat-caption">سجلات محلية في هذا المتصفح</span></article><article class="stat-card"><span class="stat-icon amber"><svg class="icon"><use href="#i-scan"/></svg></span><span class="stat-label">صور رُصدت فيها مخلفات</span><strong id="livePollutionCount">0</strong><span class="stat-caption">من التحليلات على هذا المتصفح</span></article><article class="stat-card"><span class="stat-icon blue"><svg class="icon"><use href="#i-check"/></svg></span><span class="stat-label">بلاغات راجعها المستخدم</span><strong id="liveReviewCount">0</strong><span class="stat-caption">مراجعة بشرية قبل التسجيل</span></article><article class="stat-card"><span class="stat-icon slate"><svg class="icon"><use href="#i-clock"/></svg></span><span class="stat-label">آخر بلاغ</span><strong id="latestReportTime" class="stat-text">لا يوجد</strong><span class="stat-caption">بحسب سجلاتك المحفوظة</span></article></div>
+          <div class="dashboard-grid"><section class="card chart-card"><div class="card-heading"><div><h2>البلاغات المسجلة</h2><p>تتحدث بعد إنشاء بلاغ جديد</p></div><span class="small-label">بيانات فعلية من استخدامك</span></div><div class="chart-container"><canvas id="liveReportChart" aria-label="رسم بياني للبلاغات المحلية"></canvas></div></section><section class="card dashboard-note"><span class="large-icon"><svg class="icon"><use href="#i-wave"/></svg></span><h2>كل بلاغ يبدأ بالمراجعة</h2><p>النموذج يقترح مواقع المخلفات داخل الصورة. أنت تراجع النتيجة وتؤكد موقع البلاغ قبل حفظه.</p><div class="note-divider"></div><p class="muted">لا تتضمن هذه النسخة قياسات حساسات لجودة المياه أو إرسالًا فعليًا للدرون.</p><button class="btn btn-subtle" type="button" data-panel="scan">بدء تحليل جديد<svg class="icon"><use href="#i-arrow"/></svg></button></section></div>
+        </div>
+
+        <div id="dashboard-model" role="tabpanel" aria-labelledby="tab-model" hidden>
+          <div class="metrics-context"><svg class="icon"><use href="#i-shield"/></svg><p><strong>نتائج الاختبار المحجوز</strong><span>548 صورة لم تُستخدم في تدريب النموذج. هذه نتائج مجموعة الاختبار، وليست ضمانًا لكل صورة جديدة.</span></p><span class="model-pill" lang="en">YOLOv8n</span></div>
+          <div class="stats-grid model-stats"><article class="stat-card"><span class="stat-label">صحة قرار وجود المخلفات</span><strong id="imageAccuracy" dir="ltr">96.72<span>%</span></strong><span class="stat-caption">على مستوى الصورة · <span lang="en">Accuracy</span></span></article><article class="stat-card"><span class="stat-label">متوسط دقة الكشف</span><strong id="detectionMap50" dir="ltr">88.75<span>%</span></strong><span class="stat-caption">على مستوى الأجسام · <span lang="en">mAP@50</span></span></article><article class="stat-card"><span class="stat-label">صور الاختبار</span><strong id="testImageCount">548</strong><span class="stat-caption">تقييم منفصل بعد التدريب</span></article><article class="stat-card"><span class="stat-label">دورات التدريب</span><strong>20</strong><span class="stat-caption">دورة تدريبية · <span lang="en">Epochs</span></span></article></div>
+          <div class="dashboard-grid"><section class="card chart-card"><div class="card-heading"><div><h2>مسار التدريب</h2><p>خسارة التدريب والتحقق عبر 20 دورة</p></div><span class="small-label">الانخفاض أفضل</span></div><div class="chart-container"><canvas id="trainingChart" aria-label="رسم خسارة التدريب والتحقق"></canvas></div><p class="chart-footnote">من سجل التدريب الفعلي. نتائج التحقق تختلف عن نتائج الاختبار أعلاه.</p></section><section class="card accuracy-card"><div class="card-heading compact"><h2>قرارات الصور في الاختبار</h2></div><div class="accuracy-ring"><div><strong dir="ltr">530<span>/548</span></strong><span>قرار صحيح</span></div></div><div class="error-breakdown"><div><span class="legend-dot amber"></span><span>إنذار غير صحيح</span><strong id="falseAlarmCount">8</strong></div><div><span class="legend-dot coral"></span><span>صور فات رصد مخلفاتها</span><strong id="missedImageCount">10</strong></div></div><p class="chart-footnote">تقييم ثنائي: وجود مخلفات مرئية أو غيابها. لا يقيس السلامة الكيميائية للمياه.</p></section></div>
+          <details class="card" style="margin-top:23px;padding:20px 23px">
+            <summary style="cursor:pointer;font-weight:500">تفاصيل التقييم وملفات النتائج</summary>
+            <p style="margin-top:10px;font-size:11px">المقاييس الثلاثة الأولى تخص قرار وجود المخلفات على مستوى الصورة؛ المقياس الرابع يقيّم دقة كشف الأجسام عبر حدود تطابق متعددة.</p>
+            <div class="stats-grid model-stats" style="margin-top:18px;margin-bottom:18px">
+              <article class="stat-card"><span class="stat-label">دقة الإنذار على مستوى الصورة</span><strong id="imagePrecision" dir="ltr">97.78<span>%</span></strong><span class="stat-caption" lang="en">Image precision</span></article>
+              <article class="stat-card"><span class="stat-label">استدعاء الصور التي تحوي مخلفات</span><strong id="imageRecall" dir="ltr">97.25<span>%</span></strong><span class="stat-caption" lang="en">Image recall</span></article>
+              <article class="stat-card"><span class="stat-label">التوازن بين الدقة والاستدعاء</span><strong id="imageF1" dir="ltr">97.51<span>%</span></strong><span class="stat-caption" lang="en">Image F1 score</span></article>
+              <article class="stat-card"><span class="stat-label">متوسط دقة الكشف بتطابق أكثر صرامة</span><strong id="detectionMap5095" dir="ltr">52.85<span>%</span></strong><span class="stat-caption" lang="en">Detection mAP@50–95</span></article>
+            </div>
+            <div style="display:flex;flex-wrap:wrap;gap:9px"><a class="btn btn-subtle" href="./assets/decision_metrics.json" download>تنزيل نتائج قرارات الصور · JSON</a><a class="btn btn-subtle" href="./assets/detection_metrics.json" download>تنزيل نتائج كشف الأجسام · JSON</a><a class="btn btn-subtle" href="./assets/training_results.csv" download>تنزيل سجل التدريب · CSV</a></div>
+          </details>
+          <section class="card metrics-explainer"><svg class="icon"><use href="#i-info"/></svg><p><strong>مقياسان لمهمتين مختلفتين.</strong> صحة القرار تقيس تصنيف الصورة كاملة، بينما <span lang="en">mAP@50</span> يقيس كشف الأجسام وتحديد مواقعها. لا تعني النسبتان الشيء نفسه.</p></section>
+        </div>
+      </section>
+
+      <section id="panel-reports" class="app-panel" hidden aria-labelledby="reportsHeading">
+        <div class="page-heading"><div><div class="eyebrow">سجل الرصد</div><h1 id="reportsHeading">البلاغات</h1><p>صور تمت مراجعتها، ونتائج موثّقة مع موقع البلاغ.</p></div><button id="csvExportBtn" type="button" class="btn btn-white"><svg class="icon"><use href="#i-download"/></svg>تصدير CSV</button></div>
+        <div class="reports-notice"><svg class="icon"><use href="#i-info"/></svg><p>هذه البلاغات محفوظة على هذا الجهاز والمتصفح فقط. جميع حالات الإرسال هنا تجريبية.</p></div>
+        <div id="reportList" class="report-list" aria-live="polite"></div>
+        <div id="reportEmpty" class="card empty-state"><div class="empty-illustration"><svg class="icon"><use href="#i-reports"/></svg><span class="empty-wave"></span></div><h2>سجلك يبدأ بأول بلاغ</h2><p>حلّل صورة، وحدد الموقع، ثم راجع النتيجة واحفظ البلاغ هنا.</p><button type="button" class="btn btn-primary" data-panel="scan">تحليل صورة جديدة<svg class="icon"><use href="#i-arrow"/></svg></button></div>
+      </section>
+
+      <section id="panel-about" class="app-panel" hidden aria-labelledby="aboutHeading">
+        <div class="page-heading"><div><div class="eyebrow">عن مرصاد</div><h1 id="aboutHeading">من الرصد إلى توثيق البلاغ</h1><p>نموذج عملي يجمع تحليل الصور والموقع في تجربة واحدة.</p></div><div class="heading-icon"><svg class="icon"><use href="#i-wave"/></svg></div></div>
+        <section class="about-hero"><div><span class="about-kicker" lang="en">MIRSAD · MARINE INTELLIGENCE</span><h2>لأن الرؤية الواضحة<br>تبدأ بخطوة بسيطة.</h2><p>يساعد مرصاد على رصد المخلفات المرئية في الصور، وعرض مواضعها، وربط بلاغ يراجعه المستخدم بإحداثيات واضحة.</p></div><svg class="about-waves" viewBox="0 0 400 260" fill="none" aria-hidden="true"><circle cx="210" cy="85" r="36" stroke="currentColor" stroke-width="2"/><circle cx="210" cy="85" r="64" stroke="currentColor" stroke-width="1" opacity=".45"/><circle cx="210" cy="85" r="9" fill="currentColor"/><path d="M210 8v28m0 98v27M133 85h28m98 0h28" stroke="currentColor" stroke-width="3"/><path d="M-30 169c70-70 130 70 200 0s130 70 200 0 130 70 200 0M-30 198c70-70 130 70 200 0s130 70 200 0 130 70 200 0M-30 227c70-70 130 70 200 0s130 70 200 0 130 70 200 0" stroke="currentColor" stroke-width="2"/></svg></section>
+        <div class="about-cards"><article class="card"><span class="about-step">01</span><h2>تحليل بصري</h2><p>يحدد نموذج <span lang="en">YOLOv8n</span> مواضع المخلفات التي تعلم التعرف عليها، ويعرضها داخل مربعات على الصورة.</p></article><article class="card"><span class="about-step">02</span><h2>موقع واضح</h2><p>يحدد المستخدم نقطة البلاغ على الخريطة أو يدخل إحداثياتها. إحداثيات الصورة وحدها لا تحدد تلقائيًا موقع المخلفات.</p></article><article class="card"><span class="about-step">03</span><h2>مراجعة وتوثيق</h2><p>يراجع المستخدم النتيجة قبل حفظ سجل تجريبي قابل للتنزيل. هذه النسخة لا تتصل بدرون فعلي.</p></article></div>
+        <section class="card about-limits"><h2>ما الذي تقدمه هذه النسخة؟</h2><p>كشف المخلفات المرئية، عرض نتائج الاختبار، وإدارة بلاغات محلية. تحتاج قياسات جودة المياه، وكشف الزيوت والمواد غير المرئية، وتشغيل الدرون إلى بيانات وتجهيزات وتحقق منفصل.</p></section>
+        <section class="card about-limits" aria-labelledby="sourcesHeading"><h2 id="sourcesHeading">مصادر البيانات والتوثيق</h2><p>بيانات وصور التجربة: <a href="https://doi.org/10.17882/106148" target="_blank" rel="noopener noreferrer" lang="en">Floating Marine Litter (FML), SEANOE</a>، مع نسب العمل إلى مؤلفي مجموعة البيانات، بترخيص <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer" lang="en">CC BY 4.0</a>. <a href="https://github.com/glazzerini/fml" target="_blank" rel="noopener noreferrer">مستودع المؤلفين</a>.</p><p>تضم البيانات صور سطح الماء الملتقطة من مركبة سطحية؛ تطبيق النموذج على صور درون جوية يحتاج إلى تحقق منفصل.</p><p>توثيق <span lang="en">Ultralytics</span> الرسمي: <a href="https://docs.ultralytics.com/modes/val/" target="_blank" rel="noopener noreferrer">تقييم النموذج ومقاييسه</a> · <a href="https://docs.ultralytics.com/modes/predict/" target="_blank" rel="noopener noreferrer">الاستدلال وكشف الأجسام</a>.</p></section>
+      </section>
+
+      <footer class="page-footer"><span>مرصاد <span class="footer-dot">·</span> رصد بصري بمراجعة بشرية</span><span>نموذج تجريبي للهاكاثون</span></footer>
+    </div>
+  </main>
+  <dialog id="cameraDialog" class="app-dialog camera-dialog" aria-labelledby="cameraHeading"><div class="dialog-heading"><div><span class="eyebrow">صورة من الميدان</span><h2 id="cameraHeading">التقاط صورة</h2></div><button id="cancelCameraBtn" class="icon-button" type="button" aria-label="إغلاق الكاميرا"><svg class="icon"><use href="#i-close"/></svg></button></div><div class="camera-feed"><video id="liveCamera" autoplay playsinline muted aria-label="معاينة الكاميرا المباشرة"></video><div class="camera-corner top-right"></div><div class="camera-corner bottom-left"></div></div><div class="dialog-actions"><p id="cameraStatus">وجّه الكاميرا نحو المشهد، ثم التقط صورة واضحة.</p><button id="captureBtn" class="btn btn-primary" type="button"><svg class="icon"><use href="#i-camera"/></svg>التقاط الصورة</button></div></dialog>
+  <dialog id="shareDialog" class="app-dialog share-dialog" aria-labelledby="shareHeading"><div class="dialog-heading"><div><span class="eyebrow">مرصاد بين يديك</span><h2 id="shareHeading">مشاركة المنصة</h2></div><button id="closeShareBtn" class="icon-button" type="button" aria-label="إغلاق المشاركة"><svg class="icon"><use href="#i-close"/></svg></button></div><div class="share-content"><div id="qrCode" class="qr-code" role="img" aria-label="رمز QR لفتح منصة مرصاد"></div><p>امسح الرمز لفتح المنصة على جهاز آخر.</p><label class="visually-hidden" for="siteLink">رابط المنصة</label><input id="siteLink" class="site-link" type="url" readonly dir="ltr"><button id="copyLinkBtn" class="btn btn-primary btn-full" type="button"><svg class="icon"><use href="#i-reports"/></svg>نسخ الرابط</button><span class="share-note">مشاركة الرابط لا تنقل بلاغات هذا المتصفح.</span></div></dialog>
+  <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
+  <script type="module" src="./app.js"></script>
+</body>
+</html>
